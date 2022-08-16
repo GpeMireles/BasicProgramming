@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Globalization;
 
 namespace BasicProgramming {
     internal class Program {
@@ -8,7 +9,7 @@ namespace BasicProgramming {
             string InputFile = @"C:\Users\HP\source\repos\BasicProgramming\Auxiliar.txt";
             string PathFile = "C:\\Users\\HP\\source\\repos\\BasicProgramming";
             DateTime date = DateTime.Now;
-            string OutputFile = string.Format($"{PathFile}\\Countries {date.ToString("yyyy-MMM-dd")}.txt");
+            string OutputFile = string.Format($"{PathFile}\\Countries {date.ToString("yyyy-MMM-dd", CultureInfo.GetCultureInfo("en-US"))}.txt");
             GreetCountries(InputFile, OutputFile);
             Console.WriteLine(OutputFile);
     }
