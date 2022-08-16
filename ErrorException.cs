@@ -10,7 +10,7 @@ namespace BasicProgramming {
     }
     public static class ThrowFail {
         public static void Fail() {
-            throw new ErrorException("Error!");
+            throw new ErrorException("Error!"); 
         }
     }
 }
