@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicProgramming {
     internal sealed class Laptop : Computer {
-        public Laptop(bool connected, bool power) {
-            ConnectedToInternet = connected;
+        public Laptop(bool power, bool connected) {
             Power = power;
+            ConnectedToInternet = connected;
         }
 
         public override void Connect() {

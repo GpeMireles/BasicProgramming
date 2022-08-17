@@ -5,18 +5,18 @@ using System.Globalization;
 namespace BasicProgramming {
     internal class Program {
         static void Main(string[] args) {
-            
+            /*
             string InputFile = @"C:\Users\HP\source\repos\BasicProgramming\InputFile.txt";
             string PathFile = "C:\\Users\\HP\\source\\repos\\BasicProgramming";
             DateTime date = DateTime.Now;
             string OutputFile = string.Format($"{PathFile}\\Countries {date.ToString("yyyy-MMM-dd", CultureInfo.GetCultureInfo("en-US"))}.txt");
             GreetCountries(InputFile, OutputFile);
             Console.WriteLine($"File Created, or Updated, path -> {OutputFile}");
-            
-            int num1 = 10, num2 = 5;
-            DerivateClass derivada = new DerivateClass(num1, num2);
-            derivada.Suma();
-            derivada.Resta();
+            */
+            Laptop myLaptop = new Laptop(false, true);
+            myLaptop.Connect();
+            myLaptop.OnOff();
+            myLaptop.Connect();
 
             try {
                 ThrowFail.Fail();

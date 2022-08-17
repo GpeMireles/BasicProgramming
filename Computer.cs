@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicProgramming {
     internal abstract class Computer {
-        protected bool ConnectedToInternet;
         protected bool Power;
+        protected bool ConnectedToInternet;
+
 
         public abstract void Connect();
         public abstract void OnOff();
