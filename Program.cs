@@ -1,17 +1,23 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using System;
 using System.IO;
 using System.Globalization;
 
 namespace BasicProgramming {
-    internal class Program {
+    public class Program {
         static void Main(string[] args) {
+            //BenchmarkRunner.Run<TestRunnerBenchMark>();
+            
             // 1. Conceptos Generales
             string InputFile = @"C:\Users\HP\source\repos\BasicProgramming\InputFile.txt";
             string PathFile = "C:\\Users\\HP\\source\\repos\\BasicProgramming";
             DateTime date = DateTime.Now;
             // Se crea el nombre del archivo de salida con la fecha actual, formato: "Countries 2008-Apr-08"
             string OutputFile = string.Format($"{PathFile}\\Countries {date.ToString("yyyy-MMM-dd", CultureInfo.GetCultureInfo("en-US"))}.txt");
+
             GreetCountries(InputFile, OutputFile);
+
+
             Console.WriteLine($"File Created, or Updated, path -> {OutputFile}");
 
             // 2. Progrmación Orientada a Objetos
@@ -27,7 +33,7 @@ namespace BasicProgramming {
             catch(ErrorException e) {
                 Console.WriteLine(e.Message);
             }
-
+            
         }
         /// <summary>
         /// Copia las mismas lineas de texto en el archivo de salida pero con el formato: 
@@ -35,14 +41,13 @@ namespace BasicProgramming {
         /// </summary>
         /// <param name="inputFile">la ruta al archivo entrada countries.txt</param>
         /// <param name="outputFile">nuevo archivo de salida</param>
-        static private void GreetCountries(string inputFile, string outputFile) {
+        static public void GreetCountries(string inputFile, string outputFile) {
             // Manejo de errores en la lectura y escritura del fichero
             try {
                 using(StreamWriter writer = new StreamWriter(outputFile))
                 using(StreamReader reader = new StreamReader(inputFile)) {
-                    string line;
-                    while((line = reader.ReadLine()) != null) {
-                        writer.WriteLine($"Saldos hasta {line}!");
+                    while(!reader.EndOfStream) {
+                        writer.WriteLine($"Saldos hasta {reader.ReadLine()}!");
                         // int x = Int32.Parse(line); // Línea de prueba para excepcion diferente a FileNotFoundException
                     }
                 }
